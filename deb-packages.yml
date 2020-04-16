@@ -4,3 +4,4 @@
   become: yes
   apt: deb={{ item.value.url }}
   with_dict: "{{ debs }}"
+  when: name in debs[item.key]

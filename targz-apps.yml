@@ -10,7 +10,7 @@
   with_items: "{{ check_targz_status.results }}"
   when: not item.stat.exists or item.item.value.force_reinstall|default (false)
 - name: Extract .tar.gz files
-  unarchive: src=/tmp/{{ item.item.key }}.tar.gz dest={{ item.item.value.target_dir }}
+  unarchive: copy=false src=/tmp/{{ item.item.key }}.tar.gz dest={{ item.item.value.target_dir }}
   with_items: "{{ check_targz_status.results }}"
   when: not item.stat.exists or item.item.value.force_reinstall|default (false)
 - name: Symlink extracted folders

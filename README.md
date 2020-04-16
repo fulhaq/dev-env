@@ -19,6 +19,41 @@ This is just for personal convenience. It's not intended to be highly configurab
 Note: if no version is specified it means the latest will be installed
 
 ## Dev Tools
+* Fish Shell
+* Git
+* AntiMicro
+* plank
+* ranger - a vim inspired file manager
+* Terminator - terminal
+* docker.io
+* dotnet core 2.2
+* VIM
+* The Ultimate vimrc
+* vim athena
+* GCloud
+* Kubectl
+* Kubectx and kubens
+* Kubebox
+* Kubectx and Kubens Autocomplete & Alias - Fish Shell
+* Helm
+* jq
+* snap
+* fluxctl
+* popeye
+* pbcopy and pbpaste
+* Parcellite
+* Shutter
+* Remmina for RDP
+* npm
+* Oh My Fish - Fish Shell Customizer
+* Powerline Fonts
+* Default to bobthefish terminal theme
+* Kubectl Autocomplete & Alias - Fish Shell
+* Fisher
+* z - Jump Around for Fish Shell
+* Startup redshift for blue light filter
+* Configure Common Git Aliases
+
 * [vim](http://www.vim.org/)
 * [zsh](https://github.com/zsh-users/zsh)
 * [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
