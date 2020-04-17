@@ -32,6 +32,7 @@ packages:
  - remmina-plugin-secret
  - remmina-plugin-spice
  - vim
+ - vim-athena
  - ranger
  - terminator
  - docker.io
@@ -105,15 +106,21 @@ binaries:
  kubectx:
   name: kubectx
   url: https://github.com/ahmetb/kubectx
+  dest: /usr/local/bin/kubectx
  ammonite:
   name: amm
   url: https://github.com/lihaoyi/Ammonite/releases/download/2.0.4/2.13-2.0.4
+  dest: /usr/local/bin/amm
  docker_compose:
-   name: docker-compose
-   url: https://github.com/docker/compose/releases/download/1.22.0/docker-compose-Linux-x86_64
-   zsh_completion: https://raw.githubusercontent.com/docker/compose/1.22.0/contrib/completion/zsh/_docker-compose
-   #kubectl:
-   #kuname: kubectl
-   #kuurl: https://storage.googleapis.com/kubernetes-release/release/v1.15.0/bin/linux/amd64/kubectl
+  name: docker-compose
+  url: https://github.com/docker/compose/releases/download/1.22.0/docker-compose-Linux-x86_64
+  zsh_completion: https://raw.githubusercontent.com/docker/compose/1.22.0/contrib/completion/zsh/_docker-compose
+  dest: /usr/local/bin/docker-compose
+git_repos:
+ vimrc:
+  name: vimrc 
+  url: https://github.com/amix/vimrc 
+  dest: "{{ home  }}/.vim_runtime"
+  install_command: "{{ home  }}/.vim_runtime/install_awesome_vimrc.sh"
 pip:
  - pipenv

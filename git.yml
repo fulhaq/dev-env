@@ -1,0 +1,17 @@
+---
+- include_vars: vars.yml
+- name: Download git repos 
+  become: yes
+  become_user: '{{ username }}'
+  git:
+    repo: '{{ item.value.url }}'
+    dest: '{{ item.value.dest }}'
+    clone: yes
+    depth: 1
+  with_dict: "{{ git_repos }}"
+- name: Download run install 
+  become: yes
+  become_user: '{{ username }}'
+  shell: "{{ item.value.install_command }}"
+  with_dict: "{{ git_repos }}"
+  #look into when for conditionally running the shell command

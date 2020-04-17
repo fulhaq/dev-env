@@ -8,6 +8,7 @@
    - include: apt.yml
    - include: deb-packages.yml
    - include: targz-apps.yml
+   - include: git.yml
    - include: binaries.yml
    - include: docker.yml
      #- include: pip.yml
