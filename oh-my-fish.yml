@@ -1,21 +1,61 @@
+## roles/ansible-role-fish/tasks/main.yml
+# vim:ft=yaml.ansible:
 ---
-- name: Register Oh My Zsh installation status
-  shell: ls ~/.oh-my-zsh
-  failed_when: false
-  register: ohmyzsh_installed
-- name: Install Oh My Zsh
-  shell: git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
-  when: ohmyzsh_installed.stdout == ""
-- name: Update Oh My Zsh
-  shell: git -C ~/.oh-my-zsh pull
-  when: ohmyzsh_installed.stdout != ""
-- name: Register zsh-autosuggestions installation status
-  shell: ls ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-  failed_when: false
-  register: zshautosuggestions_installed
-- name: Install zsh-autosuggestions
-  shell: git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-  when: zshautosuggestions_installed.stdout == ""
-- name: Update zsh-autosuggestions
-  shell: git -C ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions pull
-  when: zshautosuggestions_installed.stdout != ""
+- name: Install fish shell
+  package:
+    name: fish
+    state: present
+
+- name: Check if nerd fonts are installed
+  stat:
+    path: /usr/local/share/fonts/NerdFonts
+  register: fonts
+
+- name: Clone nerd fonts repo - this is a large repo
+  git:
+    repo: 'https://github.com/ryanoasis/nerd-fonts'
+    dest: '/tmp/nerd-fonts'
+    clone: yes
+    depth: 1
+  when: not fonts.stat.exists
+
+- name: Install nerd fonts
+  become: true
+  command: /tmp/nerd-fonts/install.sh -S
+  when: not fonts.stat.exists
+
+- name: Check if oh-my-fish is installed
+  stat:
+    path: '/etc/omf.installed'
+  register: omf
+
+- name: Clone oh-my-fish repo
+  git:
+    repo: 'https://github.com/oh-my-fish/oh-my-fish'
+    dest: '/tmp/omf'
+    clone: yes
+  when: not omf.stat.exists
+
+- name: Install oh-my-fish
+  become: true
+  become_user: '{{ username }}'
+  command: /tmp/omf/bin/install -y --offline --noninteractive
+  when: not omf.stat.exists
+
+- name: Install oh-my-fish templates
+  shell: "fish -c \"omf install {{ omf_theme  }}\"" 
+  #- name: Configure fish
+  #  template:
+  #    src: config.fish.j2
+  #    dest: '{{ value }}/{{ item.key }}/.config/fish/config.fish'
+  #    owner: '{{ item.key }}'
+  #    group: '{{ item.key }}'
+  #    mode: 0644
+  #  with_dict: '{{ userlist }}'
+
+  #- name: Mark oh-my-fish installed with /etc/omf.installed
+  #  file:
+  #    path: /etc/omf.installed
+  #    state: touch
+...
+

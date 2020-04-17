@@ -8,7 +8,7 @@ Vagrant.configure("2") do |config|
         dev.ssh.insert_key = false
     
         dev.vm.provision "ansible" do |ansible|
-          ansible.verbose = "vv"
+          ansible.verbose = "vvvv"
           ansible.playbook = "ubuntu.yml"
           ansible.host_key_checking = false
         end

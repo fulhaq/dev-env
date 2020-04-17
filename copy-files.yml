@@ -1,0 +1,8 @@
+- name: Create config desktop files folder
+  file: path={{ home }}/.config/autostart state=directory
+- name: Copy autostart files 
+  copy: src=./desktop-files/dot-config/ dest={{ home }}/.config/
+- name: Copy dotfiles
+  copy: src=./dotfiles/{{ item }}  dest={{ home }}/.{{ item }}
+  with_items:
+   - gitconfig

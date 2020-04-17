@@ -1,12 +1,17 @@
 ---
 - hosts: all 
+  #roles:
+  # - role: gcloud 
+  #   gcloud_tmp_path: /tmp/install_gcloud
+  #   gcloud_archive_name: google-cloud-sdk-114.0.0-darwin-x86_64.tar.gz
   tasks:
    - include: apt.yml
-     #   - include: deb-packages.yml
+   - include: deb-packages.yml
    - include: targz-apps.yml
    - include: binaries.yml
    - include: docker.yml
      #- include: pip.yml
      # - include: sublime.yml
-   - include: customization.yml
    - include: fish.yml
+   - include: copy-files.yml
+     #- include: customization.yml

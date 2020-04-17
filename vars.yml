@@ -1,5 +1,9 @@
 username: vagrant 
 home: /home/{{ username }}
+omf_theme: bobthefish 
+gcloud_archive_url: "https://dl.google.com/dl/cloudsdk/channels/rapid/downloads"
+
+
 repositories:
  sbt:
   repository: deb https://dl.bintray.com/sbt/debian /
@@ -13,24 +17,41 @@ repositories:
  spotify:
   repository: deb http://repository.spotify.com stable non-free
   key_url: https://download.spotify.com/debian/pubkey.gpg
+ gcloud:
+  repository: deb https://packages.cloud.google.com/apt cloud-sdk main
+  key_url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
 packages:
  - fish
  - zsh
  - git
  - plank
+ - curl
+ - vlc
+ - remmina
+ - remmina-plugin-rdp 
+ - remmina-plugin-secret
+ - remmina-plugin-spice
  - vim
  - ranger
  - terminator
  - docker.io
+ - snapd
  - keepassx
  - guake
  - openjdk-8-jdk
  - openjdk-11-jdk
+ - tmux
+ - xclip 
+ - xsel
+ - parcellite
+ - shutter
+ - most 
  - gdebi
  - sbt
  - python3.6
  - python3-pip
  - mysql-workbench
+ - npm
  - vagrant
  - httpie
  - jq
@@ -38,10 +59,16 @@ packages:
  - sublime-text
  - spotify-client
  - meld
+ - google-cloud-sdk 
+ - kubectl
+
 debs:
- dbeaver:
-  name: DBeaver
-  url: https://dbeaver.io/files/dbeaver-ce_latest_amd64.deb
+ antiMicro:
+  name: antiMicro 
+  url: https://launchpad.net/~mdeguzis/+archive/ubuntu/libregeek/+files/antimicro_2.23~artful-1_i386.deb 
+ jump:
+  name: jump
+  url: https://github.com/gsamokovarov/jump/releases/download/v0.30.1/jump_0.30.1_amd64.deb
 targzs:
     # maven:
     #  name: maven
@@ -85,8 +112,8 @@ binaries:
    name: docker-compose
    url: https://github.com/docker/compose/releases/download/1.22.0/docker-compose-Linux-x86_64
    zsh_completion: https://raw.githubusercontent.com/docker/compose/1.22.0/contrib/completion/zsh/_docker-compose
- kubectl:
-   name: kubectl
-   url: https://storage.googleapis.com/kubernetes-release/release/v1.15.0/bin/linux/amd64/kubectl
+   #kubectl:
+   #kuname: kubectl
+   #kuurl: https://storage.googleapis.com/kubernetes-release/release/v1.15.0/bin/linux/amd64/kubectl
 pip:
  - pipenv
