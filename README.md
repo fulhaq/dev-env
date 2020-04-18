@@ -3,6 +3,21 @@ Development Environment Configuration with Ansible
 
 [![License: MIT](https://img.shields.io/badge/license-MIT%20License-blue.svg)](https://raw.githubusercontent.com/pbassiner/dev-env/master/LICENSE)
 
+# Pre-reqs
+1. Install ssh on the computer you're running this script:
+
+``` sudo apt install openssh-server -y 
+```
+2. disalbe sudoer password 
+```
+sudo visudo
+```
+change this line:
+%sudo   ALL=(ALL:ALL) ALL
+so:
+%sudo  ALL=(ALL:ALL) NOPASSWD: ALL
+
+
 # Run it
 ```shell
 wget -qO- https://raw.github.com/pbassiner/dev-env/master/bootstrap.sh | bash

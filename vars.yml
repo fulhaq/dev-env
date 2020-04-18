@@ -1,8 +1,12 @@
-username: vagrant 
+#tasks:
+# - name: get the username running the deploy
+#   become: false
+#   local_action: command whoami
+#   register: username_on_the_host
+#   debug: var=username_on_the_host
+username: farman
 home: /home/{{ username }}
 omf_theme: bobthefish 
-gcloud_archive_url: "https://dl.google.com/dl/cloudsdk/channels/rapid/downloads"
-
 
 repositories:
  sbt:

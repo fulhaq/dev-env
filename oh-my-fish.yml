@@ -44,6 +44,7 @@
 
 - name: Install oh-my-fish templates
   shell: "fish -c \"omf install {{ omf_theme  }}\"" 
+  shell: "fish -c \"omf install weather\"" 
   #- name: Configure fish
   #  template:
   #    src: config.fish.j2
