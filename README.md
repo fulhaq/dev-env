@@ -12,10 +12,10 @@ Development Environment Configuration with Ansible
 ```
 sudo visudo
 ```
-change this line:
-%sudo   ALL=(ALL:ALL) ALL
-so:
-%sudo  ALL=(ALL:ALL) NOPASSWD: ALL
+change this line:  
+%sudo   ALL=(ALL:ALL) ALL  
+so:  
+%sudo  ALL=(ALL:ALL) NOPASSWD: ALL  
 
 
 # Run it
