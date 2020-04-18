@@ -11,6 +11,9 @@ Vagrant.configure("2") do |config|
           ansible.verbose = "vv"
           ansible.playbook = "ubuntu.yml"
           ansible.host_key_checking = false
+          ansible.extra_vars = {
+            username: "vagrant"
+          }
         end
     end
 end
