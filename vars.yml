@@ -128,15 +128,16 @@ git_repos:
   url: https://github.com/amix/vimrc.git 
   dest: "{{ home  }}/.vim_runtime"
   install_command: "{{ home  }}/.vim_runtime/install_awesome_vimrc.sh"
+  //install_command: "{{ home  }}/.vim_runtime/install_awesome_vimrc.sh"
  kubectl_auto_complete:
   name: kubectl_auto_complete
-  url: https://github.com/evanlucas/fish-kubectl-completions.gi
+  url: https://github.com/evanlucas/fish-kubectl-completions.git
   dest: "{{ home  }}/git_packages/kubectl_auto_complete"
-  install_command: "ln -s {{ home  }}/git_packages/kubectl_auto_complete/completions/kubectl.fish completions/"
+  install_command: "mkdir ~/.config/fish/completions --parents && ln -fs {{ home  }}/git_packages/kubectl_auto_complete/completions/kubectl.fish ~/.config/fish/completions/kubectl.fish"
  kubectx_auto_complete:
   name: kubectx_auto_complete
   url: https://github.com/ahmetb/kubectx.git
   dest: "{{ home  }}/git_packages/kubectx"
-  install_command: "ln -s {{ home  }}/git_packages/kubectx/completion/kubectx.fish completions/ && ln -s {{ home  }}/git_packages/kubectx/completion/kubens.fish completions/ "
+  install_command: "ln -fs {{ home  }}/git_packages/kubectx/completion/kubectx.fish ~/.config/fish/completions/ && ln -fs {{ home  }}/git_packages/kubectx/completion/kubens.fish ~/.config/fish/completions/"
 pip:
  - pipenv
