@@ -125,7 +125,7 @@ binaries:
 git_repos:
  vimrc:
   name: vimrc 
-  url: https://github.com/amix/vimrc 
+  url: https://github.com/amix/vimrc.git 
   dest: "{{ home  }}/.vim_runtime"
   install_command: "{{ home  }}/.vim_runtime/install_awesome_vimrc.sh"
  kubectl_auto_complete:
