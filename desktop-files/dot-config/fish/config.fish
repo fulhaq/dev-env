@@ -14,7 +14,7 @@ set -g theme_color_scheme terminal-dark
 
 # aliases
 function k; kubectl $argvs; end
-function kk; kibectl get pod $argvs; end
+function kk; kubectl get pod $argvs; end
 function kc; kubectx $argvs; end
 function kn; kubens $argvs; end
 function pbcopy; xclip -selection clipboard $argvs; end

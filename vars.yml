@@ -107,10 +107,10 @@ targzs:
   #tsymlinked_dir: typora
   #tforce_reinstall: true
 binaries:
- kubectx:
-  name: kubectx
-  url: https://github.com/ahmetb/kubectx
-  dest: /usr/local/bin/kubectx
+    # kubectx:
+    #  name: kubectx
+    #  url: https://github.com/ahmetb/kubectx
+    #  dest: /usr/local/bin/kubectx
  ammonite:
   name: amm
   url: https://github.com/lihaoyi/Ammonite/releases/download/2.0.4/2.13-2.0.4
@@ -125,19 +125,26 @@ binaries:
 git_repos:
  vimrc:
   name: vimrc 
+  become_user: "{{ username  }}" #required param
   url: https://github.com/amix/vimrc.git 
   dest: "{{ home  }}/.vim_runtime"
   install_command: "{{ home  }}/.vim_runtime/install_awesome_vimrc.sh"
-  //install_command: "{{ home  }}/.vim_runtime/install_awesome_vimrc.sh"
  kubectl_auto_complete:
   name: kubectl_auto_complete
+  become_user: "{{ username  }}" #required param
   url: https://github.com/evanlucas/fish-kubectl-completions.git
   dest: "{{ home  }}/git_packages/kubectl_auto_complete"
   install_command: "mkdir ~/.config/fish/completions --parents && ln -fs {{ home  }}/git_packages/kubectl_auto_complete/completions/kubectl.fish ~/.config/fish/completions/kubectl.fish"
  kubectx_auto_complete:
   name: kubectx_auto_complete
+  become_user: "root" #required param
   url: https://github.com/ahmetb/kubectx.git
   dest: "{{ home  }}/git_packages/kubectx"
-  install_command: "ln -fs {{ home  }}/git_packages/kubectx/completion/kubectx.fish ~/.config/fish/completions/ && ln -fs {{ home  }}/git_packages/kubectx/completion/kubens.fish ~/.config/fish/completions/"
+  install_command: |
+    mkdir ~/.config/fish/completions --parents &&
+    ln -fs {{ home  }}/git_packages/kubectx/completion/kubectx.fish ~/.config/fish/completions/ &&
+    ln -fs {{ home  }}/git_packages/kubectx/completion/kubens.fish ~/.config/fish/completions/ &&
+    ln -fs {{ home  }}/git_packages/kubectx/kubectx /usr/local/bin/ &&
+    ln -fs {{ home  }}/git_packages/kubectx/kubens /usr/local/bin/ 
 pip:
  - pipenv

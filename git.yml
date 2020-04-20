@@ -10,8 +10,9 @@
     depth: 1
   with_dict: "{{ git_repos }}"
 - name: Download run install 
-  become: yes
-  become_user: '{{ username }}'
+  become: yes 
+  #become_user: "{{ username if item.value.become == 'no' else 'root' }}"
+  become_user: "{{ item.value.become_user  }}"
   shell: "{{ item.value.install_command }}"
   with_dict: "{{ git_repos }}"
   #look into when for conditionally running the shell command
