@@ -120,6 +120,8 @@ binaries:
   url: https://github.com/docker/compose/releases/download/1.22.0/docker-compose-Linux-x86_64
   zsh_completion: https://raw.githubusercontent.com/docker/compose/1.22.0/contrib/completion/zsh/_docker-compose
   dest: /usr/local/bin/docker-compose
+
+ #down and install git repos
 git_repos:
  vimrc:
   name: vimrc 
@@ -128,8 +130,13 @@ git_repos:
   install_command: "{{ home  }}/.vim_runtime/install_awesome_vimrc.sh"
  kubectl_auto_complete:
   name: kubectl_auto_complete
-  url: https://github.com/evanlucas/fish-kubectl-completions 
+  url: https://github.com/evanlucas/fish-kubectl-completions.gi
   dest: "{{ home  }}/git_packages/kubectl_auto_complete"
   install_command: "ln -s {{ home  }}/git_packages/kubectl_auto_complete/completions/kubectl.fish completions/"
+ kubectx_auto_complete:
+  name: kubectx_auto_complete
+  url: https://github.com/ahmetb/kubectx.git
+  dest: "{{ home  }}/git_packages/kubectx"
+  install_command: "ln -s {{ home  }}/git_packages/kubectx/completion/kubectx.fish completions/ && ln -s {{ home  }}/git_packages/kubectx/completion/kubens.fish completions/ "
 pip:
  - pipenv
