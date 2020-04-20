@@ -51,14 +51,14 @@ sudo apt-get --assume-yes upgrade
 sudo apt-get --assume-yes install ansible
 sudo apt-get --assume-yes install git
 
-# Clone dev-env repo if not already present
-if [ ! -d ".dev-env" ]; then
-  git clone https://github.com/pbassiner/dev-env.git .dev-env
-fi
-
-# Checkout specified branch
-cd .dev-env
-git checkout ${BRANCH}
+   ## Clone dev-env repo if not already present
+   #if [ ! -d ".dev-env" ]; then
+   #  git clone https://github.com/pbassiner/dev-env.git .dev-env
+   #fi
+   #
+   ## Checkout specified branch
+   #cd .dev-env
+   #git checkout ${BRANCH}
 
 # Run Ansible playbook
 ansible-playbook ubuntu.yml -i hosts -vv ${ANSIBLE_ARGS}
