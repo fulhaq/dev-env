@@ -19,7 +19,7 @@ function kc; kubectx $argvs; end
 function kn; kubens $argvs; end
 function pbcopy; xclip -selection clipboard $argvs; end
 function pbpaste; xclip -selection clipboard -o $argvs; end
-function weather; weather new york; end
+function myweather; weather new york; end
 #function diff ; colordiff $argv ; end
 function less ; most $argv ; end
 function  z; j $argv ; end
