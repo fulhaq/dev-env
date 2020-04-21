@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=CNN
+Exec=vlc http://hd.ctoxi.com/auto/v600
+Comment=
+Terminal=false
+Icon=cinnamon-panel-launcher
+Type=Application

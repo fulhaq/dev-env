@@ -6,3 +6,5 @@
   copy: src=./dotfiles/{{ item }}  dest={{ home }}/.{{ item }}
   with_items:
    - gitconfig
+- name: Copy desktop files 
+  copy: src=./desktop-files/applications/ dest={{ home }}/Desktop/
