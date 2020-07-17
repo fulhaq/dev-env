@@ -13,12 +13,12 @@ set -g theme_display_date yes
 set -g theme_color_scheme terminal-dark
 
 # aliases
-function k; kubectl $argvs; end
-function kk; kubectl get pod $argvs; end
-function kc; kubectx $argvs; end
-function kn; kubens $argvs; end
-function pbcopy; xclip -selection clipboard $argvs; end
-function pbpaste; xclip -selection clipboard -o $argvs; end
+function k; kubectl $argv; end
+function kk; kubectl get pod $argv; end
+function kc; kubectx $argv; end
+function kn; kubens $argv; end
+function pbcopy; xclip -selection clipboard $argv; end
+function pbpaste; xclip -selection clipboard -o $argv; end
 function myweather; weather new york; end
 #function diff ; colordiff $argv ; end
 function less ; most $argv ; end
