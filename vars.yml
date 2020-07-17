@@ -40,7 +40,6 @@ packages:
  - ranger
  - terminator
  - docker.io
- - snapd
  - keepassx
  - guake
  - openjdk-8-jdk
@@ -49,13 +48,11 @@ packages:
  - xclip 
  - xsel
  - parcellite
- - shutter
  - most 
  - gdebi
  - sbt
- - python3.6
+ - python3.8
  - python3-pip
- - mysql-workbench
  - npm
  - vagrant
  - httpie
