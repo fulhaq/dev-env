@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=STARTVM
+Exec=vmrun start "/home/farman/vmware/ULHAQ-WIN10/ULHAQ-WIN10.vmx"  
+Comment=
+Terminal=false
+Icon=cinnamon-panel-launcher
+Type=Application
+Name[en_US]=STARTVM
