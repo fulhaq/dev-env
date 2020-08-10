@@ -63,6 +63,7 @@ packages:
  - meld
  - google-cloud-sdk 
  - kubectl
+ - ack
 
 debs:
  antiMicro:
