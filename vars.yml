@@ -113,6 +113,10 @@ binaries:
   name: amm
   url: https://github.com/lihaoyi/Ammonite/releases/download/2.0.4/2.13-2.0.4
   dest: /usr/local/bin/amm
+ kubebox:
+  name: kubebox
+  url: https://github.com/astefanutti/kubebox/releases/download/v0.8.0/kubebox-linux 
+  dest: /usr/local/bin/kubebox
  docker_compose:
   name: docker-compose
   url: https://github.com/docker/compose/releases/download/1.22.0/docker-compose-Linux-x86_64
