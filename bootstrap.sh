@@ -35,13 +35,13 @@ done
 
 # BOOTSTRAP
 
-# Add apt repositories
-if ! grep -q "ansible/ansible" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
-  sudo apt-add-repository ppa:ansible/ansible
-fi
-if ! grep -q "git-core/ppa" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
-  sudo apt-add-repository ppa:git-core/ppa
-fi
+## Add apt repositories
+#if ! grep -q "ansible/ansible" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
+#  sudo apt-add-repository ppa:ansible/ansible
+#fi
+#if ! grep -q "git-core/ppa" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
+#  sudo apt-add-repository ppa:git-core/ppa
+#fi
 
 # Upgrade packages
 sudo apt-get update
