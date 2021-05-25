@@ -54,6 +54,7 @@ packages:
  - kubectl
  - ack
  - docker.io
+ - neofetch
 optionalpackages:
  - plank
  - keepassx
